@@ -1,0 +1,2 @@
+# BarberShopHQ
+Learn ActiveRecordsHQ
