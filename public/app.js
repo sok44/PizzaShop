@@ -2,10 +2,12 @@ function something()
 {
 	//Используем технологию Html5 localstorage
 
-	var x = window.localStorage.getItem('aaa');
+	var x = window.localStorage.getItem('bbb');
+	//x * 1 - преобразует строку в число, фича
+	x = x * 1 + 1;
 
-	window.localStorage.setItem('aaa', 555);
-	
+	window.localStorage.setItem('bbb', x);
+
 	alert(x);
 
 }
