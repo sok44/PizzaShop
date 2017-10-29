@@ -9,7 +9,7 @@ require 'sinatra/reloader'
 require 'sinatra/activerecord'
 
 #2. Создаем подключение к бд
-set :database, "sqlite3:pazzashop.db"
+set :database, "sqlite3:pizzashop.db"
 
 #3. Создаем модель
 class Product < ActiveRecord::Base
