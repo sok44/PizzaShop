@@ -42,3 +42,12 @@ get '/about' do
 	erb :about
 end
 
+get '/menu' do
+	@products = Product.order 'title'
+	erb :menu
+end
+
+get '/product/:id' do
+	@product = Product.find(params[:id])
+	erb :product
+end

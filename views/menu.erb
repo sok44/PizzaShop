@@ -1,1 +1,44 @@
 <h2>Pizza menu</h2>
+
+<% @products.each do |product| %>
+
+	<div class="row">
+	  <div class="col-md-2">
+	  		<div class="row">
+	  			<div class="col-md-2"><img src="<%= product.path_to_image %>" alt="<%= product.title %>" class="img-circle"></div>
+			</div>
+	  </div>
+	  <div class="col-md-4">
+	  		<div class="row">
+			  <div class="col-md-6">Название:</div>
+			  <div class="col-md-6"><a href="/product/<%= product.id %>"><%= product.title %></a></div>
+			</div>
+	  		<div class="row">
+			  <div class="col-md-6">Описание:</div>
+			  <div class="col-md-6"><%= product.description %></div>
+			</div>
+			<div class="row">
+			  <div class="col-md-6">Размер:</div>
+			  <div class="col-md-6"><%= product.size %></div>
+			</div>
+			<div class="row">
+			  <div class="col-md-6">is_spicy:</div>
+			  <div class="col-md-6"><%= product.is_spicy %></div>
+			</div>
+			<div class="row">
+			  <div class="col-md-6">is_veg:</div>
+			  <div class="col-md-6"><%= product.is_veg %></div>
+			</div>
+			<div class="row">
+			  <div class="col-md-6">is_best_offer:</div>
+			  <div class="col-md-6"><%= product.is_best_offer %></div>
+			</div>
+			<div class="row">
+			  <div class="col-md-2">Цена:</div>
+			  <div class="col-md-2"><%= product.price %></div>
+			</div>
+	  </div>
+	</div>
+
+
+<% end %>
