@@ -41,3 +41,20 @@ function cart_get_number_of_items()
 
 	return cnt;
 }
+
+function cart_get_orders()
+{
+	var orders = '';
+	for(var i = 0; i < window.localStorage.length; i++)
+	{
+		var key = window.localStorage.key(i);
+
+		if (key.indexOf('product_') == 0)
+		{
+			var value = window.localStorage.getItem(key);
+			orders = orders + key + '=' + value + ', ';
+		}
+	}
+
+	return orders;
+}
