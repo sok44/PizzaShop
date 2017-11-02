@@ -42,3 +42,29 @@
 
 
 <% end %>
+
+<br />
+<div>
+	<div class="row">
+		<% @products.each do |product| %>
+			<div class="col-md-3">
+				<div>
+					<a href="/product/<%= product.id %>"><%= product.title %></a>
+				</div>
+				<div>
+					<img src="<%= product.path_to_image %>" alt="<%= product.title %>" class="img-circle">
+				</div>
+				<div>
+					<%= product.description %>
+				</div>
+				<div>
+					<%= product.size %>
+				</div>
+				<div>
+					<%= product.price %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+
