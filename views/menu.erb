@@ -64,7 +64,7 @@
 					<%= product.price %>
 				</div>
 				<div>
-					<button class="btn btn-success btn-sm" onclick="add_to_cart()">Add to cart</button>
+					<button class="btn btn-success btn-sm" onclick="add_to_cart(<%= product.id %>)">Add to cart</button>
 				</div>
 			</div>
 		<% end %>
