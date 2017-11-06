@@ -77,7 +77,7 @@ post '/place_order' do
 	@order = Order.new params[:order]
 	
 	if @order.save
-		erb "Ваш заказ оформлен!"
+		erb :order_placed
 	else
 		@error = @order.errors.full_messages.first
 		erb :index
