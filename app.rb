@@ -11,9 +11,15 @@ require 'sinatra/activerecord'
 #2. Создаем подключение к бд
 set :database, "sqlite3:pizzashop.db"
 
-#3. Создаем модель
+#3. Создаем модель имя в ед. числе
 class Product < ActiveRecord::Base
+end
 
+class Order < ActiveRecord::Base
+	validates :orders_input, presence: true
+	validates :name, presence: true, length: { minimum: 3}
+	validates :phone, presence: true
+	validates :address, presence: true
 end
 
 #4. Создаем Rakefile в папке с app.rb для создания миграции
@@ -21,7 +27,7 @@ end
 
 #5. Запускаем rake команды которые создают базу под нужную версию программы
 
-#5.1 rake db:create_migration NAME=create_products - создает фаил новой миграции для продуктов  в db/migrate/
+#5.1 rake db:create_migration NAME=create_products - (имя во мн. ч.) создает фаил новой миграции для продуктов  в db/migrate/
 #заходим в созданную миграцию в папке db и в методе change описываем модель (таблицу)
 
 #5.2 rake db:migrate - применяет (выполняет) созданную миграцию (грубо говоря в этот момент создаются таблицы в бд и сама бд)
@@ -54,8 +60,8 @@ end
 
 post '/cart' do
 
-	orders_input = params[:orders]
-	@items = parse_orders_input orders_input
+	@orders_input = params[:orders_input]
+	@items = parse_orders_input @orders_input
 
 	@items.each do |item|
 		#id, cnt
@@ -63,6 +69,19 @@ post '/cart' do
 	end
 
 	erb :cart
+
+end
+
+post '/place_order' do
+
+	@order = Order.new params[:order]
+	
+	if @order.save
+		erb "Ваш заказ оформлен!"
+	else
+		@error = @order.errors.full_messages.first
+		erb :index
+	end
 
 end
 
