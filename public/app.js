@@ -85,5 +85,8 @@ function cancel_order()
 	update_orders_input();
 	update_orders_button();
 
+	//блок div с id=cart заменяем на текст
+	$('#cart').text('Your cart is now empty');
+
 	return false;
 }
