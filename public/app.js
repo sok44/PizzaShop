@@ -80,6 +80,10 @@ function cart_get_orders()
 //Функция которая блокирует отправку формы на сервер
 function cancel_order()
 {
-	alert('!!!'); 
+	window.localStorage.clear();
+				
+	update_orders_input();
+	update_orders_button();
+
 	return false;
 }
