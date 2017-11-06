@@ -76,3 +76,10 @@ function cart_get_orders()
 
 	return orders;
 }
+
+//Функция которая блокирует отправку формы на сервер
+function cancel_order()
+{
+	alert('!!!'); 
+	return false;
+}
